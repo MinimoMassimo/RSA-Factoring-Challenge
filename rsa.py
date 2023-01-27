@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-import sys
 import random
 import math
 
@@ -42,11 +41,11 @@ def PollardRho(n):
 
     while (d == 1):
         #tortoise move: x(i+1) = f(x(i))
-        x = (modular_pow(x, 2, n) + c + n) % n
+        x = modular_pow(x, 2, n) + c + n) % n
 
         #hare move: y(i+1) = f(f(y(i)))
-        y = (modular_pow(y, 2, n) + c + n) % n
-        y = (modular_pow(y, 2, n) + c + n) % n
+        y = modular_pow(y, 2, n) + c + n) % n
+        y = modular_pow(y, 2, n) + c + n) % n
 
         #check gcd of |x-y| and n
         d = math.gcd(abs(x - y), n)
@@ -58,9 +57,9 @@ def PollardRho(n):
     return d
 
 f = open(sys.argv[1], "r")
-n = f.readline()
+lines = f.readlines()
 
-n = int(n.strip())
-res = PollardRho(n)
-print("{}={}*{}".format(n, res, int(n/res)))
-f.close()
+for n in lines:
+    n = int(n.strip())
+    res = PollardRho(n)
+    print("{}={}*{}".format(n, d, int(n/d))
